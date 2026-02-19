@@ -1,0 +1,225 @@
+  <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>BAT ÇALIŞMALARIM</title>
+  <link rel="stylesheet" href="../bozukdevretech.css">
+</head>
+
+<body>
+<style>
+    /*============ BAT ÇALIŞMALARIM İÇİN CSS ==============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  body {
+  background: linear-gradient(135deg, #07112e 10%, #1e3a8a 50%, #0f172a 90%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+header {
+background: #020617;
+padding: 20px 0px;
+border-bottom: 2px solid #38bdf8;
+position: sticky;
+z-index: 100;
+}
+
+.konteyner { /* header elemanlarının konteyner içine alınması yerleşim açısından önemli*/
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+nav a {
+color: #cbd5e1;
+text-decoration: none;
+margin-left: 20px;
+font-size: 20px;
+transition: color 0.3s;
+/*--- bu kısım navigasyon elemanları aktif olduğunda arkaplanın formunu göstermek için var ---*/
+padding: 8px 14px;
+border-radius: 12px;
+}
+
+nav a:hover {
+color: #60a5fa;
+background-color: #334155;
+}
+
+.ogretici_kismi {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.bomba_imha_ekibi_1 {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.matrix_ekrani {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.hero_text {
+  font-size: 18px;
+  text-align: center;
+  color: #38bdf8;
+  margin-top: 20px;
+}
+
+/*----------------------- Offside fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Offside";
+  src: url("../yazi_tipleri/Offside-Regular.ttf") format("truetype");
+}
+.fontOffside {
+  font-family: "Offside";
+}
+/*----------------------- NovaSquare fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "NovaSquare";
+  src: url("../yazi_tipleri/Nova_Square/NovaSquare-Regular.ttf") format("truetype");
+}
+
+.fontNova {
+  font-family: "NovaSquare", monospace;
+}
+
+.bat-kod {
+  max-width: 900px;
+  background: #020617;
+  color: #38bdf8;
+  padding: 20px;
+  border-radius: 16px;
+  overflow-x: auto;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.indir-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #60a5fa;
+  color: #020617;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.indir-btn:hover {
+  background: #93c5fd;
+}
+/* lineer-gradient sadece background ile kullanılır background-color ile değil */
+.cizgi {
+  border: none;          /* varsayılan çizgiyi kaldırır */
+  height: 4px;           /* kalınlık */
+  background: linear-gradient(135deg, #93c5fd 10%, #1e3a8a 50%, #0f172a 90%);
+  width: 150%;            /* uzunluk */
+}
+</style>
+<!--================ HEADER ================-->
+<header>
+<div class="konteyner">
+<!-- geri butonu -->
+  <div class="backBtn" href="../HTMLLER/index.html">Geri Dön</div>
+<!-- navigasyon kısmı-->
+<!-- aynı sayfada link verilecekse data target kısmına gerek yok -->
+  <nav class="fontNova">
+      <a href="#ogretici_kismi">Öğretici çalışması</a>
+                      
+      <a href="#bombteam1">bomba imha ekibi</a>
+                      
+      <a href="#matrix">matrix ekranı</a>
+                      
+      <a href="#">...</a>
+  </nav>
+
+</div>
+</header>
+
+<p class="hero_text fontOffside"> Bazı projelerin telif hakkı tamamiyle Bozuk_Devre_Tech' e aittir.</p>
+
+<main class="bat-detay">
+<!--================== ÖĞRETİCİ ÇALIŞMASI ================-->
+<div class="ogretici_kismi">
+  <h1 id="ogretici">.BAT <i>"Öğretici"</i> Çalışması</h1>
+
+  <!-- KOD BLOĞU -->
+  <pre class="bat-kod"><code>
+    Bu bat dosyası, Windows ortamında temel komutların
+    nasıl çalıştığını öğretmek amacıyla hazırlanmıştır.
+    
+    you tube -> bozukdevretech
+    instagram -> Bozuk_Devre_Tech
+
+    Üstelik bu eğlenceli çalışmamın kodlarını
+    sizlerle ücretsiz olarak paylaşıyorum.
+    ↓↓↓
+  </code></pre>
+
+  <!-- İNDİR BUTONU -->
+  <a class="indir-btn" href="../BAT_CALİSMALAR/ogretici.zip" download>
+    ⭳⭳⭳ öğretici.Zip indir
+  </a>
+</div>
+<hr class="cizgi">
+<!--============= BOMBA İMHA EKİP 1 ÇALIŞMASI ============-->
+<div class="bomba_imha_ekibi_1">
+  <h1 id="bombteam1">.BAT <i>"Bomba imha ekibi_1"</i> çalışması</h1>
+
+  <!-- KOD BLOĞU -->
+  <pre class="bat-kod"><code>
+    Bu bat dosyası, Windows ortamında öğrenmeyi
+    eğlenceli hale getirmek amacıyla hazırlanmıştır.
+    
+    you tube -> bozukdevretech
+    instagram -> Bozuk_Devre_Tech
+
+    Üstelik bu eğlenceli çalışmamın kodlarını
+    sizlerle ücretsiz olarak paylaşıyorum.
+    ↓↓↓
+  </code></pre>
+
+  <!-- İNDİR BUTONU -->
+  <a class="indir-btn" href="../BAT_CALİSMALAR/bomb_imha_ekip_1.zip" download>
+    ⭳⭳⭳ BombEkip_1.Zip indir
+  </a>
+</div>
+<hr class="cizgi">
+<!--============= MATRİX EKRANI ÇALIŞMASI ============-->
+<div class="matrix_ekrani">
+  <h1 id="matrix">.BAT <i>"Matrix ekranı"</i> çalışması</h1>
+
+  <!-- KOD BLOĞU -->
+  <pre class="bat-kod"><code>
+    Bu bat dosyası, Terminal ekranınızda sürekli değişen
+    yeşil sayılar açarak size âdeta bir <span style="color: rgb(0, 255, 0)">'hacker'</span> hissiyatı verir.
+    
+    you tube -> bozukdevretech
+    instagram -> Bozuk_Devre_Tech
+
+    Üstelik bu eğlenceli çalışmamın kodlarını
+    sizlerle ücretsiz olarak paylaşıyorum.
+    ↓↓↓
+  </code></pre>
+
+  <!-- İNDİR BUTONU -->
+  <a class="indir-btn" href="../BAT_CALİSMALAR/matrix.zip" download>
+    ⭳⭳⭳ matrix.Zip indir
+  </a>
+
+</div>
+
+</main>
+
+</body>
+</html>

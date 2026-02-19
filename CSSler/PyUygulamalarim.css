@@ -1,0 +1,129 @@
+/*============ PHYTON ÇALIŞMALARIM İÇİN CSS ==============*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  body {
+  background: linear-gradient(135deg, #07112e 10%, #1e3a8a 50%, #0f172a 90%);
+  color: #fff;
+  min-height: 100vh;
+}
+
+header {
+background: #020617;
+padding: 20px 0px;
+border-bottom: 2px solid #38bdf8;
+position: sticky;
+z-index: 100;
+}
+
+.konteyner { /* header elemanlarının konteyner içine alınması yerleşim açısından önemli*/
+display: flex;
+align-items: center;
+}
+/*  paragraf için yazı özellikleri*/
+.hero_text {
+  font-size: 18px;
+  text-align: center;
+  color: #38bdf8;
+  margin-top: 20px;
+}
+nav {
+  margin-left: auto;
+  display: flex;
+  gap: 20px;
+}
+nav a {
+color: #cbd5e1;
+text-decoration: none;
+margin-left: 20px;
+font-size: 20px;
+transition: color 0.3s;
+/*--- bu kısım navigasyon elemanları aktif olduğunda arkaplanın formunu göstermek için var ---*/
+padding: 8px 14px;
+border-radius: 12px;
+}
+
+nav a:hover {
+color: #60a5fa;
+background-color: #334155;
+}
+
+.py_estetik {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.tahmin {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.py-kod {
+  max-width: 900px;
+  background: #020617;
+  color: #38bdf8;
+  padding: 10px;
+  border-radius: 16px;
+  overflow-x: auto;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.indir-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #60a5fa;
+  color: #020617;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.indir-btn:hover {
+  background: #93c5fd;
+}
+/* lineer-gradient sadece background ile kullanılır background-color ile değil */
+.cizgi {
+  border: none;          /* varsayılan çizgiyi kaldırır */
+  height: 4px;           /* kalınlık */
+  background: linear-gradient(135deg, #93c5fd 10%, #1e3a8a 50%, #0f172a 90%);
+  width: 100%;            /* uzunluk */
+}
+
+/*----------------------- NovaSquare fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "NovaSquare";
+  src: url("../yazi_tipleri/Nova_Square/NovaSquare-Regular.ttf") format("truetype");
+}
+
+/* fontunu tanıtmazsan kod nasıl çalışabilirki! sen gidip font adını yazacağın yere yolu yazıyorsun olcak iş mi şimdi bu*/
+.fontNova {
+  font-family: "NovaSquare", monospace;
+}
+/*olur da dosya yolu değişir ya da rahmetlik olursa nova square in yerine monospace kullansın diyorum*/
+
+
+/*----------------------- Audiowide fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "Audiowide";
+  src: url("../yazi_tipleri/Audiowide/Audiowide-Regular.ttf") format("truetype");
+}
+
+.fontAudioWide {
+  font-family: "Audiowide";
+}
+
+
+/*----------------------- Offside fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Offside";
+  src: url("../yazi_tipleri/Offside-Regular.ttf") format("truetype");
+}
+.fontOffside {
+  font-family: "Offside";
+}

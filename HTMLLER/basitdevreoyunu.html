@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="bu html sayfası kod çalışmalarımı içerecek">
+	<meta name="author" content="BozukDevre123">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../CSSler/stiller.css">
+	<base href="" target=_blank>
+	<!--<link rel="stylesheet" href="stil.css"> eğer css i başka bir sayfada yazıyor olsaydım alıntılardım ama gerek yok-->
+	<title>Devre oyunları</title>
+
+</head>
+<!--scriptten kontrol edebilmek için anahtara (yer değiştirecekse) id atamak şarttır.-->
+<!--html yorumlarının style ya da script içinde olmadığından emin ol-->
+
+<body>
+ <div id="tooltip" class="tooltip"></div>
+
+<details><!--basit devre şeması-->
+	<summary><b>basit devre şeması</b></summary>
+<svg width="300" height="200" style="border:1px solid white">
+
+<!--kablolar-->
+	<line x1="75" y1="50" x2="125" y2="50" stroke="#00cccc" stroke-width="4"/>
+	<line x1="175" y1="50" x2="225" y2="50" stroke="#00cccc" stroke-width="4"/>
+	<line x1="225" y1="50" x2="225" y2="85" stroke="#00cccc" stroke-width="4"/>
+	<line x1="225" y1="115" x2="225" y2="150" stroke="#00cccc" stroke-width="4"/>
+	<line x1="75" y1="150" x2="225" y2="150" stroke="#00cccc" stroke-width="4"/>
+	<line x1="75" y1="150" x2="75" y2="95" stroke="#00cccc" stroke-width="4"/>
+	<line x1="75" y1="85" x2="75" y2="50" stroke="#00cccc" stroke-width="4"/>
+<!--pil-->
+	<line
+		x1="55" y1="85"
+		x2="95" y2="85"
+		stroke="#00cccc"
+		stroke-width="4"/>
+	<line
+		x1="60" y1="95"
+		x2="90" y2="95"
+		stroke="#00cccc"
+		stroke-width="4"/>
+<!--pil görünmez alanı-->
+	<rect id="pil" x="50" y="80"
+		width="50" height="20"
+		fill="transparent"
+		cursor="pointer"
+		style="pointer-evets: none;"
+		data-name="pil";/>
+<!--anahtar-->
+	<line id="d1-anahtar"
+		x1="125" y1="50"
+		x2="175" y2="30"
+		stroke="#00cccc"
+		stroke-width="4"
+		stroke-linecap="round"/>
+
+<!--anahtar interaktif alan-->
+	<rect id="d1-click"
+		x="120" y="20"
+		width="60" height="40"
+		fill="rgba(0,0,0,0.01)"
+		cursor="pointer"
+		data-name="anahtar"/>
+
+<!--lamba-->
+	<circle id="d1-led"
+		cx="225" cy="100" r="15"
+		fill="#444"
+		data-name="ampul"/>
+		
+<!--devre birleşim noktaları-->
+	<circle
+		cx="125" cy="50" r="4"
+		fill="red"/>
+	<circle
+		cx="175" cy="50" r="4"
+		fill="red"/>
+
+<!-- GÖRÜNMEZ AKIM YOLU (Pilden başlar) -->
+	<path id="d1-yol"
+		d="M75 85 V50 H225 V150 H75 V95 Z"
+		fill="none" stroke="none"/>
+<!-- AKAN SARI BENEKLER -->
+	<g id="d1-akim" style="display:none;">
+	<circle r="4" fill="yellow">
+	<animateMotion id="d1-akimhiz" dur="2s" repeatCount="indefinite" begin="indefinite">
+	<mpath href="#d1-yol"/>
+	</animateMotion> </circle></g>
+</svg>
+<!--kodlar-->
+<script>
+let acik = false;
+
+const d1Anahtar = document.getElementById("d1-anahtar");
+const d1Led = document.getElementById("d1-led");
+const d1Click = document.getElementById("d1-click");
+const d1Akim = document.getElementById("d1-akim");
+const d1AkimHiz = document.getElementById("d1-akimhiz");
+
+d1Click.addEventListener("click", () => {
+	acik = !acik;
+
+	if (acik) {
+		// anahtar kapalı → açık
+		d1Anahtar.setAttribute("x2", "175");
+		d1Anahtar.setAttribute("y2", "50");
+
+		// LED yanık
+		d1Led.setAttribute("fill", "#fcff4f");
+		d1Akim.style.display="block";
+		d1AkimHiz.beginElement();
+	} else {
+		// anahtar açık → kapalı
+		d1Anahtar.setAttribute("x2", "175");
+		d1Anahtar.setAttribute("y2", "30");
+
+		// LED sönük
+		d1Led.setAttribute("fill", "#444");
+		d1Akim.style.display="none";
+		d1AkimHiz.endElement();
+	}
+});
+</script>
+</details>
+
+<details><!--çok anahtarlı devre şeması-->
+<summary><b>çok anahtarlı devre şeması</b></summary>
+<svg width="300" height="200" style="border:1px solid white">
+<!--kablolar-->
+	<line x1="75" y1="85" x2="75" y2="50" stroke="#00cccc" stroke-width="4"/>
+	<line x1="75" y1="50" x2="100" y2="50" stroke="#00cccc" stroke-width="4"/>
+	<line x1="130" y1="50" x2="160" y2="50" stroke="#00cccc" stroke-width="4"/>
+	<line x1="190" y1="50" x2="225" y2="50" stroke="#00cccc" stroke-width="4"/>
+	<line x1="225" y1="50" x2="225" y2="85" stroke="#00cccc" stroke-width="4"/>
+	<line x1="225" y1="115" x2="225" y2="150" stroke="#00cccc" stroke-width="4"/>
+	<line x1="225" y1="150" x2="75" y2="150" stroke="#00cccc" stroke-width="4"/>
+	<line x1="75" y1="150" x2="75" y2="95" stroke="#00cccc" stroke-width="4"/>
+
+<!--devre birleşim noktaları-->
+	<circle
+		cx="100" cy="50" r="4"
+		fill="red"/>
+	<circle
+		cx="130" cy="50" r="4"
+		fill="red"/>
+	<circle
+		cx="160" cy="50" r="4"
+		fill="red"/>
+	<circle
+		cx="190" cy="50" r="4"
+		fill="red"/>
+
+<!--pil-->
+<line
+	x1="55" y1="85"
+	x2="95" y2="85"
+	stroke="#00cccc"
+	stroke-width="4"/>
+<line
+	x1="60" y1="95"
+	x2="90" y2="95"
+	stroke="#00cccc"
+	stroke-width="4"/>
+
+<!--pil görünmez alanı-->
+	<rect id="pil" x="50" y="80"
+	width="50" height="20"
+	fill="transparent"
+	cursor="pointer"
+	style="pointer-evets: none;"
+	data-name="pil";/>
+
+<!-- ANAHTARLAR -->
+	<line id="d2-a1"
+	x1="100" y1="50"
+	x2="130" y2="30"
+    stroke="#00cccc"
+	stroke-width="4"
+	stroke-linecap="round"/>
+	
+	<line id="d2-a2"
+	x1="160" y1="50"
+	x2="190" y2="30"
+    stroke="#00cccc"
+	stroke-width="4"
+	stroke-linecap="round"/>
+
+<!--ANAHTAR INTERAKTIF ALANLARı-->
+	<rect id="d2-c1"
+	x="90" y="10"
+	width="50" height="60"
+    fill="rgba(0,0,0,0.01)"
+	cursor="pointer"
+	data-name="Anahtar 1"/>
+	
+	<rect id="d2-c2"
+	x="150" y="10"
+	width="50" height="60"
+    fill="rgba(0,0,0,0.01)"
+	cursor="pointer"
+	data-name="Anahtar 2"/>
+
+<!--LAMBA-->
+	<circle id="d2-led"
+		cx="225" cy="100" r="15"
+		fill="#444"
+		data-name="ampul"/>
+
+<!-- GÖRÜNMEZ AKIM YOLU (Pilden başlar) -->
+	<path id="d2-yol"
+	d="M75 85 V50 H225 V150 H75 V95 Z"
+	fill="none" stroke="none"/>
+
+<!--AKAN SARı BENEKLER-->
+	<g id="d2-akim" style="display:none;">
+	<circle r="4" fill="yellow">
+	<animateMotion id="d2-akimhiz" dur="2s" repeatCount="indefinite" begin="indefinite">
+	<mpath href="#d2-yol"/>
+	</animateMotion> </circle></g>
+</svg>
+<script>
+let d2_s1=false, d2_s2=false;
+
+const d2a1=document.getElementById("d2-a1");
+const d2a2=document.getElementById("d2-a2");
+const d2c1=document.getElementById("d2-c1");
+const d2c2=document.getElementById("d2-c2");
+const d2led=document.getElementById("d2-led");
+const d2Akim=document.getElementById("d2-akim");
+const d2Akis=document.getElementById("d2-akimhiz");
+
+function d2Kontrol(){
+  if(d2_s1 && d2_s2){
+    d2led.setAttribute("fill","#fcff4f");
+    d2Akim.style.display="block";
+    d2Akis.beginElement();
+  } else {
+    d2led.setAttribute("fill","#444");
+    d2Akim.style.display="none";
+    d2Akis.endElement();
+  }
+}
+
+d2c1.onclick=()=>{
+  d2_s1=!d2_s1;
+  d2a1.setAttribute("y2", d2_s1? "50":"30");
+  d2Kontrol();
+};
+
+d2c2.onclick=()=>{
+  d2_s2=!d2_s2;
+  d2a2.setAttribute("y2", d2_s2? "50":"30");
+  d2Kontrol();
+};
+</script>
+</details>
+
+<details><!--switch anahtarlı devre-->
+	<summary><b>Switch Buton</b></summary>
+	<svg width="300" height="200" style="border:1px solid white">
+	<!--KABLOLAR-->
+		<line x1="75" y1="85" x2="75" y2="50" stroke="#00cccc" stroke-width="4"/>
+		<line x1="75" y1="50" x2="130" y2="50" stroke="#00cccc" stroke-width="4"/>
+		<line x1="160" y1="50" x2="225" y2="50" stroke="#00cccc" stroke-width="4"/>
+		<line x1="225" y1="50" x2="225" y2="85" stroke="#00cccc" stroke-width="4"/>
+		<line x1="225" y1="115" x2="225" y2="150" stroke="#00cccc" stroke-width="4"/>
+		<line x1="225" y1="150" x2="75" y2="150" stroke="#00cccc" stroke-width="4"/>
+		<line x1="75" y1="150" x2="75" y2="95" stroke="#00cccc" stroke-width="4"/>
+<!--PIL-->
+	<line
+		x1="55" y1="85"
+		x2="95" y2="85"
+		stroke="#00cccc"
+		stroke-width="4"/>
+	<line
+		x1="60" y1="95"
+		x2="90" y2="95"
+		stroke="#00cccc"
+		stroke-width="4"/>
+
+<!--PIL GÖRÜNMEZ ALANı-->
+	<rect id="pil" x="50" y="80"
+		width="50" height="20"
+		fill="transparent"
+		cursor="pointer"
+		style="pointer-evets: none;"
+		data-name="pil";/>
+
+<!--Switch ANAHTAR-->
+	<line id="d3-switch1"
+		x1="130" y1="30"
+		x2="160" y2="30"
+		stroke="#00cccc"
+		stroke-width="4"
+		stroke-linecap="round"/>
+	<line id="d3-switch2"
+		x1="145" y1="30"
+		x2="145" y2="20"
+		stroke="#00cccc"
+		stroke-width="4"
+		stroke-linecap="round"/>
+
+<!--ANAHTAR INTERAKTIF ALAN-->
+	<rect id="d3-click"
+		x="120" y="20"
+		width="60" height="40"
+		fill="transparent"
+		pointer-evets="all"
+		data-name="switch"/>
+
+<!--LAMBA-->
+	<circle id="d3-led"
+		cx="225" cy="100" r="15"
+		fill="#444"
+		data-name="ampul"/>
+		
+<!--devre birleşim noktaları-->
+	<circle
+		cx="130" cy="50" r="4"
+		fill="red"/>
+	<circle
+		cx="160" cy="50" r="4"
+		fill="red"/>
+
+<!-- GÖRÜNMEZ AKIM YOLU (Pilden başlar) -->
+	<path id="d3-yol"
+		d="M75 85 V50 H225 V150 H75 V95 Z"
+		fill="none" stroke="none"/>
+	
+<!-- AKAN SARI BENEKLER -->
+	<g id="d3-akim" style="display:none;">
+	<circle r="4" fill="yellow">
+	<animateMotion id="d3-akimhiz" dur="2s" repeatCount="indefinite" begin="indefinite">
+	<mpath xlink:href="#d3-yol"/>
+	</animateMotion> </circle></g>
+</svg>
+<script>
+
+const d3Click = document.getElementById("d3-click");
+const d3Led = document.getElementById("d3-led");
+const d3Akim = document.getElementById("d3-akim");
+const d3Akis = document.getElementById("d3-akimhiz");
+const d3S1 = document.getElementById("d3-switch1");
+const d3S2 = document.getElementById("d3-switch2");
+
+
+/* DEVREYİ BAŞLAT */
+function devreAc() {
+	d3Led.setAttribute("fill", "yellow");
+	/*switch_1 için:*/
+	d3S1.setAttribute("x1", "145");
+	d3S1.setAttribute("y1", "30");
+  	d3S1.setAttribute("x2", "145");
+	d3S1.setAttribute("y2", "50");
+	/*switch_2 için:*/
+	d3S2.setAttribute("x1", "130");
+	d3S2.setAttribute("y1", "50");
+	d3S2.setAttribute("x2", "160");
+	d3S2.setAttribute("y2", "50");
+	/*akim ve akis*/
+	d3Akim.style.display = "block";
+	d3Akis.beginElement();
+}
+
+/* DEVREYİ DURDUR */
+function devreKapat() {
+  d3Led.setAttribute("fill", "#444");
+  	/*switch_1 için:*/
+	d3S1.setAttribute("x1", "145");
+	d3S1.setAttribute("y1", "10");
+  	d3S1.setAttribute("x2", "145");
+	d3S1.setAttribute("y2", "30");
+	/*switch_2 için:*/
+	d3S2.setAttribute("x1", "130");
+	d3S2.setAttribute("y1", "30");
+	d3S2.setAttribute("x2", "160");
+	d3S2.setAttribute("y2", "30");
+	d3Akim.style.display = "none";
+	d3Akis.endElement();
+}
+//EVENTLER — SADECE BİR KEZ 
+d3Click.addEventListener("pointerdown", devreAc);
+d3Click.addEventListener("pointerup", devreKapat);
+d3Click.addEventListener("pointerleave", devreKapat);
+</script>
+<script>
+/* Tooltip ortak */
+const tooltip=document.getElementById("tooltip");
+document.querySelectorAll("[data-name]").forEach(el=>{
+  el.addEventListener("mousemove",e=>{
+    tooltip.textContent=el.dataset.name;
+    tooltip.style.left=e.pageX+10+"px";
+    tooltip.style.top=e.pageY+10+"px";
+    tooltip.style.opacity=1;
+  });
+  el.addEventListener("mouseleave",()=>tooltip.style.opacity=0);
+});
+</script>
+
+
+
+
+</body>
+
+
+</html>

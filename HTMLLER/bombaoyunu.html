@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Bozuk Devre – Geri Sayım</title>
+
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #00cccc;
+      font-family: monospace;
+      padding: 40px;
+    }
+
+    #geri-sayim {
+      background: black;
+      padding: 20px;
+      width: fit-content;
+      border: 1px solid #00cccc;
+    }
+
+    #geri-sayim.bitti {
+      color: red;
+      border-color: red;
+    }
+
+    button, input {
+      margin-top: 10px;
+      padding: 6px 10px;
+      font-family: monospace;
+      background: #111;
+      color: #00cccc;
+      border: 1px solid #00cccc;
+    }
+
+    button:hover {
+      background: #00cccc;
+      color: black;
+      cursor: pointer;
+    }
+
+    input {
+      width: 140px;
+    }
+
+    #uyari {
+      margin-top: 8px;
+      color: orange;
+    }
+
+    /* 📜 MEKTUP */
+    #mektupilk, #mektupson {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #00cccc;
+      background: black;
+      color: #00cccc;
+      max-width: 500px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>BOZUK DEVRE</h1>
+
+<section id="geri-sayim">
+  <pre id="ekran"></pre>
+</section>
+
+<button id="tekrarBtn" style="display:none;">Tekrar Başlat</button>
+
+<input type="text" id="sifreInput" placeholder="Şifre (6 hane)" maxlength="6">
+<button id="durdurBtn">Dene</button>
+
+<p id="uyari"></p>
+
+<section id="mektupilk">
+<pre></pre>
+</section>
+<section id="mektupson">
+<pre>
+Eğer bunu okuyorsan…
+
+Zaman bitti.
+Ama her şey patlamaz.
+
+Bazı devreler
+sadece susar.
+
+— Bozuk Devre
+</pre>
+</section>
+
+<script>
+/* ====== AYARLAR ====== */
+let a = 0;
+let b = 20;
+const DOGRU_SIFRE = "868054";
+/* ==================== */
+
+const ekran = document.getElementById("ekran");
+const container = document.getElementById("geri-sayim");
+const uyari = document.getElementById("uyari");
+const durdurBtn = document.getElementById("durdurBtn");
+const sifreInput = document.getElementById("sifreInput");
+const tekrarBtn = document.getElementById("tekrarBtn");
+const mektupson = document.getElementById("mektupson");
+const mektupilk = document.getElementById("mektupilk").querySelector("pre");
+
+let interval = null;
+let calisiyor = false;
+
+/* ====== DAKTİLO EFEKTİ İÇİN FONKSİYON ====== */
+function yazdirMektup(pre, metin, hız = 50) {
+  pre.textContent = "";
+  let i = 0;
+  const yaz = () => {
+    if (i < metin.length) {
+      pre.textContent += metin[i];
+      i++;
+      setTimeout(yaz, hız);
+    }
+  }
+  yaz();
+}
+
+function yazdir() {
+  ekran.textContent = `
+    {zamanin bitmesine}
+
+    ---------
+    } ${String(a).padStart(2, "0")}:${String(b).padStart(2, "0")} {
+    ---------
+  `;
+}
+
+function geriSayim() {
+  yazdir();
+
+  if (a === 0 && b === 0) {
+    bitir();
+    return;
+  }
+
+  if (b === 0) {
+    a--;
+    b = 59;
+  } else {
+    b--;
+  }
+}
+
+function bitir() {
+  clearInterval(interval);
+  calisiyor = false;
+  container.classList.add("bitti");
+  tekrarBtn.style.display = "inline-block";
+  mektupson.style.display = "block";
+
+  ekran.textContent = `
+    ---------
+    } 00:00 {
+    ---------
+  `;
+}
+
+// ⏹️ DURDUR (ŞİFRE)
+durdurBtn.addEventListener("click", () => {
+  if (!calisiyor) return;
+
+  if (sifreInput.value === DOGRU_SIFRE) {
+    clearInterval(interval);
+    calisiyor = false;
+    uyari.textContent = "✔ Bomba imha edildi";
+  } else {
+    uyari.textContent = "❌ Yanlış şifre!";
+  }
+});
+
+// 🔁 TEKRAR BAŞLAT
+tekrarBtn.addEventListener("click", () => {
+  clearInterval(interval);
+
+  a = 0;
+  b = 20;
+
+  uyari.textContent = "";
+  sifreInput.value = "";
+  container.classList.remove("bitti");
+  tekrarBtn.style.display = "none";
+  mektupson.style.display = "none";
+
+  calisiyor = true;
+  yazdir();
+  interval = setInterval(geriSayim, 1000);
+});
+
+// 🚀 SAYFA AÇILINCA OTOMATİK BAŞLAT
+calisiyor = true;
+yazdir();
+interval = setInterval(geriSayim, 1000);
+
+/* === İLK MEKTUPU DAKTİLO İLE YAZDIR === */
+const metinIlk = `Bu görev için seni uygun gördüm.
+işte şifren: 868054
+Başarılar...
+
+— Bozuk Devre`;
+yazdirMektup(mektupilk, metinIlk, 50);  // 50ms harf arası
+document.getElementById("mektupilk").style.display = "block";
+
+</script>
+
+</body>
+</html>

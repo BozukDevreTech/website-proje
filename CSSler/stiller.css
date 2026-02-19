@@ -1,0 +1,20 @@
+/*devre oyunları için css*/
+/*style html de sayfalar arası css yerleştirme etiketi olduğu için css de kullanmaya gerek yoktur*/
+/*css sadece stil içindir scriptler dahil edilemez*/
+
+/*sayfa ve yazı rengi ayarı*/
+body {
+	background-color: navy;
+	color: #21f8ff;
+}
+.tooltip {
+    position: absolute;
+    background: #00cccc;
+    color: navy;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.1s;
+  }

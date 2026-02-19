@@ -1,0 +1,337 @@
+/*========= BOZUK_DEVRE_TECH için CSS =========*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: linear-gradient(135deg, #07112e 10%, #1e3a8a 50%, #0f172a 90%);
+    color: #fff;
+    min-height: 100vh;
+}
+
+header {
+background: #010721;
+border-radius: 20px; /* kenar yumuşatma */
+padding: 10px 0;
+border-bottom: 2px solid #38bdf8;
+position: sticky;
+margin-top: 130px; /* yukarıdan boşluk verir*/
+z-index: 100;
+}
+
+.konteyner { /* header elemanlarının konteyner içine alınması yerleşim açısından önemli*/
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.baslik-icerik {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.logo-icon {
+width: 40px;
+height: 40px;
+color: #60a5fa;
+;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+}
+
+.logo-text h1 {
+font-size: 24px;
+color: #fff;
+transition-duration:0.3s;
+}
+.logo-text h1:hover { /* fare konuma geldiğinde logo buna dönüşecek */
+	color: #60a5fa;
+;
+}
+.logo-text p {
+font-size: 18px;
+color: #60a5fa;
+}
+
+nav a {
+color: #cbd5e1;
+text-decoration: none;
+margin-left: 20px;
+font-size: 20px;
+transition: color 0.3s;
+/*--- bu kısım navigasyon elemanları aktif olduğunda arkaplanın formunu göstermek için var ---*/
+padding: 8px 14px;
+border-radius: 12px;
+}
+
+nav a:hover {
+color: #60a5fa;
+background-color: #334155;
+}
+
+/*========BURGER MENÜ======*/
+.BURGER {
+  font-size: 30px;
+  cursor: pointer;	/* tıklanabilir alan oldu */
+  display: block;	/* eğer bu kısmı none yapsaydık burger menü görünmez olurdu */
+  color: #ffffff;
+  margin-right: 40px; /* burger menüye sağdan boşluk verdik */
+}
+
+/*------ Burger dropdown ------*/
+.burger-menu {
+  position: absolute;
+  top: 70px;
+  right: 25px;
+  background-color: #041f5e;
+  border-radius: 15px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 160px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+  z-index: 100;
+}
+/* Linkler */
+.burger-menu a {
+  color: #f5f1e8;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+/* Açık hali */
+.burger-menu.active {
+  display: flex;
+}
+.burger-menu a:hover {
+color: #ffffff;
+background-color: #1845ad;
+;
+}
+/* nav ögeleri olan sayfaların içeriklerini gizlemek için kullanıyoruz */
+.sayfa {
+    display: none;
+}
+
+.sayfa.active {
+    display: block;
+}
+/* ---------------- ANA SAYFA LAYOUT ---------------- */
+/* BURASI HER ŞEY */
+.anasayfa-grid {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+/*-------------------- SOL: ÖNERİLENLER ------------------------*/
+.onerilenler {
+  flex: 3; /* 5 parçanın 3’ü */
+  margin-top: 20px; /*kutunun headerdan olan uzaklığı*/
+}
+
+/*-------------------- YAZITİPİ ÇALIŞMASI ----------------------*/
+.yazitip {
+  font-family: "PirataOne-Regular", cursive;
+}
+
+/* align items kodu flex ya da grid ögeleri için çalışır. normal blok ögeleri için bunu kullanamazsın
+yine aynı şekilde resim ve yazılar block element ise alt alta dizilirler. Flex içine almazsan yan yana dizemezsin.
+RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
+
+/*align items sadece dikeyde çalışır*/
+
+/*text-align: center; flex yapısı olduğundan çalışmaz bu durumda justify content kullanman iyi olur.*/
+
+/*padding vermek yerine hizalamamamızın sebebi mobil uyumlu olarak çalışabilmesi*/
+.onerilenler h4 {
+	width: 100%;
+	height: 50px;
+	flex: 3;
+	display: flex;
+  justify-content: center;
+	align-items: center;      /* dikey */
+	background-color: #60a5fa;
+  color: black;
+	border-radius: 30px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05),
+              0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* ----------------------- KARTLAR ALT ALTA ---------------------- */
+.onerilen-grid {
+  display: block;
+}
+
+.onerilen-kart {
+  width: 100%;
+  min-height: 160px;
+  background: #0a318e;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06),
+              0 20px 40px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  
+  /* bu kısım resim ve yazıların yan yana gelmesi için */
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.onerilen-kart:hover {	/* kartın üstüne gelince hafif hareket eder */
+  background: #60a5fa92;
+  transform: translateY(-4px);
+}
+
+/* KARE RESİM */
+.kart-resim {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;     /* 🔥 resim küçülmez */
+}
+
+/* YAZI ALANI */
+.kart-icerik {
+  display: block;    /* 🔥 başlık + açıklama ALT ALTA */
+}
+
+/* BAŞLIK */
+.kart-baslik {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* AÇIKLAMA */
+.kart-aciklama {
+  font-size: 16px;
+  color: #8ac6f5;
+  line-height: 1.4;
+}
+/*------------------------------------------------------------*/
+/*------------------- SAĞ: SON EKLENENLER ------------------- */
+/*------------------------------------------------------------*/
+.son-eklenenler {
+  flex: 2; /* 5 parçanın 2’si */
+  background: #60a5fa92;
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05),
+              0 20px 40px rgba(0,0,0,0.5);
+}
+/* align-items sadece display: flex veya display: grid olan elemanlarda çalışır. Bir yazı için kullanacaksan text-align en mantıklısı*/
+.son-eklenenler h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* liste */
+.son-liste {
+  list-style: none;
+}
+
+.son-liste li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+.son-liste li:last-child {
+  border-bottom: none;
+}
+
+.son-liste .baslik {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color:#0f172a;
+}
+
+.son-liste .tarih {
+  font-size: 12px;
+  color: #ffffff;
+}
+/* ----------------------------------------------------------------*/
+/* ---------------------- ÇALIŞMALARIM KISMI ----------------------*/
+/*-----------------------------------------------------------------*/
+/* css de gride flex eklemeden bölme işlemini yapamazsın */
+.calismalar-grid {
+  display: flex;
+  gap: 32px;          /* aralarına boşluk */
+  align-items: flex-start;
+}
+
+.calismalar-sol {
+  flex: 3; /* 5in üçünü kaplar */
+}
+
+.calismalar-sag { /* bu kısımda artık sağ tarafı bir sidebar haline getiriyoruz */
+  flex: 2; /* 5in ikisini kaplar*/
+  margin-top: 20px;
+  /*
+  position: sticky;
+  top: 120px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 20px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 20px 40px rgba(0,0,0,0.5);*/
+  
+    /* sidebar hissini KALDIR */
+  background: none;
+  padding: 0;
+  box-shadow: none;
+
+  /* detaylar alt alta dizilsin */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.calismalar-sag a {
+  color: #60a5fa;           /* DAHA PARLAK */
+  background: rgba(96,165,250,0.08);
+  font-weight: 500;
+}
+/* details kısımlarına ayrı birer kutu hissi vermek için css..*/
+.calismalar-sag details {
+  background: #07112e;
+  border-radius: 16px 0px 0px 16px;
+  padding: 16px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 20px 40px rgba(0,0,0,0.5);
+
+  transition: transform 0.3s;
+}
+.calismalar-sag summary {
+  color:#ffffff;
+}
+
