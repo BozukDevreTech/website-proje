@@ -13,11 +13,11 @@ body {
 
 header {
 background: #010721;
-border-radius: 20px; /* kenar yumuşatma */
+border-radius: 0px; /* kenar yumuşatma */
 padding: 10px 0;
 border-bottom: 2px solid #38bdf8;
 position: sticky;
-margin-top: 130px; /* yukarıdan boşluk verir*/
+margin-top: 0px; /* yukarıdan boşluk verir*/
 z-index: 100;
 }
 
@@ -334,4 +334,5 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 .calismalar-sag summary {
   color:#ffffff;
 }
+
 
