@@ -58,7 +58,7 @@ transition-duration:0.3s;
 }
 .logo-text h1:hover { /* fare konuma geldiğinde logo buna dönüşecek */
 	color: #60a5fa;
-;
+
 }
 .logo-text p {
 font-size: 18px;
@@ -71,6 +71,7 @@ text-decoration: none;
 margin-left: 20px;
 font-size: 20px;
 transition: color 0.3s;
+
 /*--- bu kısım navigasyon elemanları aktif olduğunda arkaplanın formunu göstermek için var ---*/
 padding: 8px 14px;
 border-radius: 12px;
@@ -293,7 +294,7 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 
 /* YAZI ALANI */
 .kart-icerik {
-  display: block;    /* başlık + açıklama ALT ALTA */
+  display: block;    /* başlık + açıklama ALT ALTA dizilecek*/
 }
 
 /* BAŞLIK */
@@ -459,3 +460,4 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
   color:#ffffff;
   font-size: 19px;
 }
+
