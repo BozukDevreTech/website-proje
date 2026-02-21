@@ -32,13 +32,13 @@
                 </div>
         <!-- ====== LİNK VERİLEN HEDEF SAYFALAR ====== -->
                 <nav>
-                    <a href="#" data-target="anasayfa">Ana Sayfa</a>
+                    <a class="yazitip" href="#" data-target="anasayfa">Ana Sayfa</a>
                     
-                    <a href="#" data-target="kesfet">Keşfet</a>
+                    <a class="yazitip" href="#" data-target="kesfet">Keşfet</a>
                     
-                    <a href="#" data-target="calismalar">Çalışmalarım</a>
+                    <a class="yazitip" href="#" data-target="calismalar">Çalışmalarım</a>
                     
-                    <a href="#" data-target="anasayfa">Blog</a>
+                    <a class="yazitip" href="#" data-target="blog">Blog</a>
                 </nav>
         <!--====== BURGER MENÜ ÇALIŞMASI ======-->
                 <div class="BURGER">☰</div>
@@ -93,18 +93,18 @@
 					<hr>
 						<ul class="son-liste">
 							<li>
-								<span class="tarih">Bugün</span>
-								<span class="baslik">Yeni İçerik A</span>
+								<span class="tarih"></span>
+								<a class="baslik"></a>
 							</li>
-					<hr>
+					
 							<li>
-								<span class="tarih">Dün</span>
-								<span class="baslik">Yeni İçerik B</span>
+								<span class="tarih"></span>
+								<a class="baslik"></a>
 							</li>
-					<hr>
+					
 							<li>
-								<span class="tarih">2 gün önce</span>
-								<span class="baslik">Yeni İçerik C</span>
+								<span class="tarih"></span>
+								<a class="baslik"></a>
 							</li>
 						</ul>
 					</aside>
@@ -130,15 +130,17 @@
         <!----------=========== SAĞ KISIM ==========---------->
             <div class="calismalar-sag">
                 <details>
-                    <summary id="yönlendirme">Mini Oyunlar</summary>
-                    <a href="/website-proje/HTMLLER/bombaoyunu.html" target="_Blank">Bomba imha oyunu</a><br>
-                    <a href="/website-proje/HTMLLER/basitdevreoyunu.html" target="_Blank">Elektronik Devre Oyunları</a><br>
-                    <a href="/website-proje/HTMLLER/kutuyakalamaca.html" target="_Blank">Kutu Yakalamaca</a><br>
-                    radardan hedef bulup yok etme<br>
+                    <summary id="yönlendirme">Mini Oyunlar 🎮</summary>
+                    <ul>
+                        <a href="/website-proje/HTMLLER/bombaoyunu.html" target="_Blank">🡺 Bomba imha oyunu 🡸</a><br>
+                        <a href="/website-proje/HTMLLER/basitdevreoyunu.html" target="_Blank">🡺 Elektronik Devre Oyunları 🡸</a><br>
+                        <a href="/website-proje/HTMLLER/kutuyakalamaca.html" target="_Blank">🡺 Kutu Yakalamaca 🡸</a><br>
+                        <li>radardan hedef bulup yok etme</li><br>
+                    </ul>
                 </details>
                 <details>
                     <summary id="batcalismalar" >BAT ÇALIŞMALARIM</summary>
-                    <a href="/website-proje/HTMLLER/ogretici.html" target="_blank"> çalışmalarıma git </a>
+                    <a class="calismalarlink" href="/website-proje/HTMLLER/ogretici.html" target="_blank">🡺 çalışmalarıma git 🡸</a>
                     <ul>
                         <li>öğretici</li>
                         <li>bomba_imha_ekibi_1</li>
@@ -154,12 +156,12 @@
                 </details>
                 <details>
                     <summary id="pycalismalar">PHYTON ÇALIŞMALARIM</summary>
-                    <a href="/website-proje/HTMLLER/PhytonCalismlarim.html" target="_blank"> çalışmalarıma git </a>
+                    <a class="calismalarlink" href="/website-proje/HTMLLER/PhytonCalismlarim.html" target="_blank">🡺 çalışmalarıma git 🡸</a>
                     <ul>
                         <li>Tahmin oyunu</li>
                         <li>Vki hesaplama aracı</li>
                         <li>Bölünebilme durum hesaplama</li>
-                        <li>Asal sayıları yazdırma</li>
+                        <li>Asal Sayıları Yazdırma</li>
                         <li>...</li>
                         <li>...</li>
                     </ul>
@@ -167,14 +169,23 @@
             </div>
         </div>
     </section>
+            <!-- ====== BLOG SAYFASI ÇALIŞMASI ====== -->
+    <section id="blog" class="sayfa">
+        <p>bu sayfa henüz yapılandırılmadı!!<br>
+            bu sayfa için json dosyaları kullanılacaktır.
+        </p>
+    </section>
     </main>
 
 
     </body>
-	
+
     <!-- video link verme için js -->
-    <script src="./js/videolar.js"></script>
-	
+    <script src="/website-proje/js/videolar.js"></script>
+
+    <!-- son eklenenler için js -->
+     <script src="/website-proje/js/soneklenenler.js"></script>
+
     <!-- burger menü için script -->
 	<script>
 	const burger = document.querySelector(".BURGER");
@@ -221,9 +232,3 @@ linkler.forEach(link => {
 11-
 -->
 </html>
-
-
-
-
-
-
