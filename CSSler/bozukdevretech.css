@@ -105,6 +105,7 @@ background-color: #334155;
   box-shadow: 0 10px 25px rgba(0,0,0,0.7);
   z-index: 100;
 }
+
 /* Linkler */
 .burger-menu a {
   color: #f5f1e8;
@@ -114,14 +115,16 @@ background-color: #334155;
   font-size: 14px;
   transition: all 0.3s ease;
 }
+
 /* Açık hali */
 .burger-menu.active {
   display: flex;
 }
+
 .burger-menu a:hover {
 color: #ffffff;
 background-color: #1845ad;
-;
+
 }
 /* nav ögeleri olan sayfaların içeriklerini gizlemek için kullanıyoruz */
 .sayfa {
@@ -131,6 +134,7 @@ background-color: #1845ad;
 .sayfa.active {
     display: block;
 }
+
 /* ---------------- ANA SAYFA LAYOUT ---------------- */
 /* BURASI HER ŞEY */
 .anasayfa-grid {
@@ -145,10 +149,81 @@ background-color: #1845ad;
   margin-top: 20px; /*kutunun headerdan olan uzaklığı*/
 }
 
-/*-------------------- YAZITİPİ ÇALIŞMASI ----------------------*/
-.yazitip {
+/*============================ YAZITİPİ ÇALIŞMASI ==========================*/
+/*----------------------- PirataOne-Regular fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "PirataOne-Regular";
+  src: url("../yazi_tipleri/PirataOne-Regular.ttf") format("truetype");
+}
+
+.PirataOne {
   font-family: "PirataOne-Regular", cursive;
 }
+
+/*----------------------- NovaSquare fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "NovaSquare";
+  src: url("../yazi_tipleri/Nova_Square/NovaSquare-Regular.ttf") format("truetype");
+}
+
+/* fontunu tanıtmazsan kod nasıl çalışabilirki! sen gidip font adını yazacağın yere yolu yazıyorsun olcak iş mi şimdi bu*/
+.fontNova {
+  font-family: "NovaSquare", monospace;
+}
+/*olur da dosya yolu değişir ya da rahmetlik olursa nova square in yerine monospace kullansın diyorum*/
+
+
+/*----------------------- Audiowide fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "Audiowide";
+  src: url("../yazi_tipleri/Audiowide/Audiowide-Regular.ttf") format("truetype");
+}
+
+.fontAudioWide {
+  font-family: "Audiowide";
+}
+
+/*----------------------- Offside fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Offside";
+  src: url("../yazi_tipleri/Offside-Regular.ttf") format("truetype");
+}
+
+.fontOffside {
+  font-family: "Offside";
+}
+
+/*----------------------- Tektur fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Tektur";
+  src: url("../yazi_tipleri/Tektur/Tektur-VariableFont_wdth\,wght.ttf") format("truetype");
+}
+
+.Tektur {
+  font-family: "Tektur";
+}
+
+/*----------------------- CoralPixel fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Coralpixel";
+  src: url("../yazi_tipleri/Coral_Pixels/CoralPixels-Regular.ttf") format("truetype");
+}
+
+.Coralpixel {
+  font-family: "Coralpixel";
+}
+
+/*----------------------- Mozilla Text fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Mozillatext";
+  src: url("../yazi_tipleri/Mozilla_Text/MozillaText-VariableFont_wght.ttf") format("truetype");
+}
+
+.Mozillatext {
+  font-family: "Mozillatext";
+}
+/* zaten yazı ailesini uzantısıyla vermişken neden sınıf tanımlıyoruz? gerek var mı? */
+
 
 /* align items kodu flex ya da grid ögeleri için çalışır. normal blok ögeleri için bunu kullanamazsın
 yine aynı şekilde resim ve yazılar block element ise alt alta dizilirler. Flex içine almazsan yan yana dizemezsin.
@@ -170,9 +245,13 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
   color: black;
 	border-radius: 30px;
 	margin-bottom: 20px;
-	font-size: 20px;
+	font-size: 24px;
 	box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05),
               0 20px 40px rgba(0,0,0,0.5);
+}
+
+.yazitip {
+  font-family: "NovaSquare";
 }
 
 /* ----------------------- KARTLAR ALT ALTA ---------------------- */
@@ -183,7 +262,7 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 .onerilen-kart {
   width: 100%;
   min-height: 160px;
-  background: #0a318e;
+  background: #2b58c2;
   border-radius: 18px;
   padding: 20px;
   margin-bottom: 20px;
@@ -199,7 +278,7 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 }
 
 .onerilen-kart:hover {	/* kartın üstüne gelince hafif hareket eder */
-  background: #60a5fa92;
+  background: #3874ff;
   transform: translateY(-4px);
 }
 
@@ -207,35 +286,68 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 .kart-resim {
   width: 130px;
   height: 130px;
-  object-fit: cover;
+  object-fit: cover; /*görselin oranı değişirse boyutunu bozmaz hatta bulunduğu kutunun tamamını kaplaması için gerekiyrse görselin bir kısmını kırpar*/
   border-radius: 12px;
-  flex-shrink: 0;     /* 🔥 resim küçülmez */
+  flex-shrink: 0;     /*  resim küçülmez */
 }
 
 /* YAZI ALANI */
 .kart-icerik {
-  display: block;    /* 🔥 başlık + açıklama ALT ALTA */
+  display: block;    /* başlık + açıklama ALT ALTA */
 }
 
 /* BAŞLIK */
 .kart-baslik {
-  font-size: 20px;
+  font-size: 25px;
+  font-family: "NovaSquare", cursive;
+  color:#000000;
   font-weight: 600;
   margin-bottom: 6px;
 }
 
+.kart-baslik-2 {
+  font-size: 21px;
+  font-family: "NovaSquare", cursive;
+  color:#000000;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.kart-baslik-3 {
+  font-size: 21px;
+  font-family: "NovaSquare", cursive;
+  color:#000000;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
 /* AÇIKLAMA */
 .kart-aciklama {
-  font-size: 16px;
-  color: #8ac6f5;
+  font-size: 21px;
+  font-family: "Tektur";
+  color: #ffffff;
   line-height: 1.4;
 }
+
+.kart-aciklama-2{
+  font-size: 21px;
+  font-family: "Tektur";
+  color: #ffffff;
+  line-height: 1.4;
+}
+
+.kart-aciklama-3{
+  font-size: 21px;
+  font-family: "Tektur";
+  color: #ffffff;
+  line-height: 1.4;
+}
+
 /*------------------------------------------------------------*/
 /*------------------- SAĞ: SON EKLENENLER ------------------- */
 /*------------------------------------------------------------*/
 .son-eklenenler {
   flex: 2; /* 5 parçanın 2’si */
-  background: #60a5fa92;
+  background: #010721;
   border-radius: 18px;
   padding: 20px;
   margin-top: 20px;
@@ -244,7 +356,8 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 }
 /* align-items sadece display: flex veya display: grid olan elemanlarda çalışır. Bir yazı için kullanacaksan text-align en mantıklısı*/
 .son-eklenenler h2 {
-  font-size: 20px;
+  font-size: 23px;
+  color:#60a5fa;
   margin-bottom: 16px;
   text-align: center;
 }
@@ -256,7 +369,7 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 
 .son-liste li {
   padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 2px solid rgb(0, 255, 234);
   cursor: pointer;
 }
 
@@ -266,14 +379,15 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 
 .son-liste .baslik {
   display: block;
-  font-size: 14px;
+  font-family: "Mozillatext";
+  font-size: 19px;
   font-weight: 600;
-  color:#0f172a;
+  color:#2600ff;
 }
 
 .son-liste .tarih {
-  font-size: 12px;
-  color: #ffffff;
+  font-size: 17px;
+  color: #44ff00;
 }
 /* ----------------------------------------------------------------*/
 /* ---------------------- ÇALIŞMALARIM KISMI ----------------------*/
@@ -283,6 +397,11 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
   display: flex;
   gap: 32px;          /* aralarına boşluk */
   align-items: flex-start;
+}
+
+.calismalarlink {
+  font-family: "Offside";
+  font-size: 16px;
 }
 
 .calismalar-sol {
@@ -317,7 +436,7 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 .calismalar-sag a {
   color: #60a5fa;           /* DAHA PARLAK */
   background: rgba(96,165,250,0.08);
-  font-weight: 500;
+  font-size: 19px;
 }
 /* details kısımlarına ayrı birer kutu hissi vermek için css..*/
 .calismalar-sag details {
@@ -333,6 +452,10 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 }
 .calismalar-sag summary {
   color:#ffffff;
+  font-size: 20px;
+  font-family: "Tektur";
 }
-
-
+.calismalar-sag ul li {
+  color:#ffffff;
+  font-size: 19px;
+}
