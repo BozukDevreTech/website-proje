@@ -454,7 +454,7 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
 /* ----------------------------------------------------------------*/
 /* ------------------------- BLOG KISMI ---------------------------*/
 /*-----------------------------------------------------------------*/
-/*paragraf stil değişikliği uygulandı
+
 .paragraf {
   font-size: 25px;
   font-family: "Mozillatext";
@@ -462,4 +462,5 @@ RGBa daki a rengin opaklığını belirleyen alpha değeridir. */
   color: #fe0000;
   margin-top: 20px;
 }
+
 
