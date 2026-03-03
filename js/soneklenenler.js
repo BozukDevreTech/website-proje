@@ -1,5 +1,9 @@
 const gonderiler = [
-
+    {
+        tarih: "03 Mart 2026 Html_2 yayında:",
+        baslik: "https://short-url.org/1kXRl",
+    },
+    
     {
         tarih: "Sponsorluk:",
         baslik: "https://short-url.org/1piNy",
@@ -34,3 +38,4 @@ for (let i = 0; i < gonderiler.length; i++) {
 
     basliklar[i].target = "_blank";             //yeni sekmede açılacak
 }
+
