@@ -443,7 +443,7 @@ background-color: #1845ad;
   flex-direction: column;
 }
 
-.kart-baslik {
+.uni-kart-baslik {
   font-size: 22px;
   font-family: "NovaSquare", cursive;
   color: #ffffff;
@@ -527,3 +527,4 @@ background-color: #1845ad;
   color: #fe0000;
   margin-top: 20px;
 }
+
