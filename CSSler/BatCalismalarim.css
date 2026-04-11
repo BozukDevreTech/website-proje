@@ -1,0 +1,177 @@
+/*=================  BAT ÇALIŞMALARIM İÇİN CSS ==================*/
+/*============  arkaplan ve ana sayfa için eklentiler ===========*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+  body {
+  background: linear-gradient(135deg, #07112e 10%, #1e3a8a 50%, #0f172a 90%);
+  color: #fff;
+  min-height: 100vh;
+}
+/*____________________________________________________________________________________*/
+/*============  header kısmı için css düzenlemeleri  ===========*/
+header {
+background: #020617;
+padding: 20px 0px;
+border-bottom: 2px solid #38bdf8;
+position: sticky;
+z-index: 100;
+}
+
+.konteyner { /* header elemanlarının konteyner içine alınması yerleşim açısından önemli*/
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+nav a {
+color: #cbd5e1;
+text-decoration: none;
+margin-left: 20px;
+font-size: 20px;
+transition: color 0.3s;
+/*--- bu kısım navigasyon elemanları aktif olduğunda arkaplanın formunu göstermek için var ---*/
+padding: 8px 14px;
+border-radius: 12px;
+}
+
+nav a:hover {
+color: #60a5fa;
+background-color: #334155;
+}
+/*____________________________________________________________________________________*/
+/*============  kaydırma elemanları için css  ===========*/
+
+
+.kaydir-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.kaydir-container {
+  overflow-x: auto;
+  display: flex;
+  gap: 15px;
+  scroll-behavior: smooth;
+  flex: 1;
+}
+
+.kaydir-container a {
+  white-space: none;
+}
+
+.kaydir-container a:hover {
+  border-bottom: 2px solid white;
+}
+
+.ok {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: white;
+}
+
+/*____________________________________________________________________________________*/
+/*============  diğer sayfa elemanları için css düzenlemeleri  ===========*/
+/* lineer-gradient sadece background ile kullanılır background-color ile değil */
+.cizgi {
+  border: none;          /* varsayılan çizgiyi kaldırır */
+  height: 4px;           /* kalınlık */
+  background: linear-gradient(135deg, #93c5fd 10%, #1e3a8a 50%, #0f172a 90%);
+  width: 150%;            /* uzunluk */
+}
+
+.ogretici_kismi {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.bomba_imha_ekibi_1 {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.matrix_ekrani {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.bomba_imha_ekibi_2 {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.dijitalsaatcmd {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.bluescmd {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+}
+
+.hero_text {
+  font-size: 18px;
+  text-align: center;
+  color: #38bdf8;
+  margin-top: 20px;
+}
+/*____________________________________________________________________________________*/
+/* ================== fontların tanımlanması ve diğer işlemler ================== */
+
+/*----------------------- Offside fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Offside";
+  src: url("../yazi_tipleri/Offside-Regular.ttf") format("truetype");
+}
+.fontOffside {
+  font-family: "Offside";
+}
+/*----------------------- NovaSquare fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "NovaSquare";
+  src: url("../yazi_tipleri/Nova_Square/NovaSquare-Regular.ttf") format("truetype");
+}
+
+.fontNova {
+  font-family: "NovaSquare", monospace;
+}
+/*____________________________________________________________________________________*/
+/* ==================== sayfa gövde elemanları için css kodları ====================*/
+
+.bat-kod {
+  max-width: 900px;
+  background: #020617;
+  color: #38bdf8;
+  padding: 20px;
+  border-radius: 16px;
+  overflow-x: auto;
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.indir-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #60a5fa;
+  color: #020617;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.indir-btn:hover {
+  background: #93c5fd;
+}
