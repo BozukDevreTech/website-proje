@@ -1,153 +1,33 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
   <title>BAT ÇALIŞMALARIM</title>
-  <link rel="stylesheet" href="../bozukdevretech.css">
+  <link rel="stylesheet" href="./CSSler/BatCalismalarim.css">
 </head>
 
 <body>
-<style>
-    /*============ BAT ÇALIŞMALARIM İÇİN CSS ==============*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-  body {
-  background: linear-gradient(135deg, #07112e 10%, #1e3a8a 50%, #0f172a 90%);
-  color: #fff;
-  min-height: 100vh;
-}
-
-header {
-background: #020617;
-padding: 20px 0px;
-border-bottom: 2px solid #38bdf8;
-position: sticky;
-z-index: 100;
-}
-
-.konteyner { /* header elemanlarının konteyner içine alınması yerleşim açısından önemli*/
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
-}
-
-nav a {
-color: #cbd5e1;
-text-decoration: none;
-margin-left: 20px;
-font-size: 20px;
-transition: color 0.3s;
-/*--- bu kısım navigasyon elemanları aktif olduğunda arkaplanın formunu göstermek için var ---*/
-padding: 8px 14px;
-border-radius: 12px;
-}
-
-nav a:hover {
-color: #60a5fa;
-background-color: #334155;
-}
-
-.ogretici_kismi {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 30px;
-}
-
-.bomba_imha_ekibi_1 {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 30px;
-}
-
-.matrix_ekrani {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 30px;
-}
-
-.hero_text {
-  font-size: 18px;
-  text-align: center;
-  color: #38bdf8;
-  margin-top: 20px;
-}
-
-/*----------------------- Offside fontunun tanımlanması ----------------------*/
-@font-face{
-  font-family: "Offside";
-  src: url("../yazi_tipleri/Offside-Regular.ttf") format("truetype");
-}
-.fontOffside {
-  font-family: "Offside";
-}
-/*----------------------- NovaSquare fontunun tanımlanması ----------------------*/
-@font-face {
-  font-family: "NovaSquare";
-  src: url("../yazi_tipleri/Nova_Square/NovaSquare-Regular.ttf") format("truetype");
-}
-
-.fontNova {
-  font-family: "NovaSquare", monospace;
-}
-
-.bat-kod {
-  max-width: 900px;
-  background: #020617;
-  color: #38bdf8;
-  padding: 20px;
-  border-radius: 16px;
-  overflow-x: auto;
-  margin: 20px 0;
-  font-size: 18px;
-}
-
-.indir-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: #60a5fa;
-  color: #020617;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.indir-btn:hover {
-  background: #93c5fd;
-}
-/* lineer-gradient sadece background ile kullanılır background-color ile değil */
-.cizgi {
-  border: none;          /* varsayılan çizgiyi kaldırır */
-  height: 4px;           /* kalınlık */
-  background: linear-gradient(135deg, #93c5fd 10%, #1e3a8a 50%, #0f172a 90%);
-  width: 100%;            /* uzunluk */
-}
-</style>
 <!--================ HEADER ================-->
 <header>
 <div class="konteyner">
-<!-- navigasyon kısmı-->
-<!-- aynı sayfada link verilecekse data target kısmına gerek yok -->
-  <nav class="fontNova">
-      <a href="#ogretici_kismi">Öğretici çalışması</a>
-                      
+<nav class="fontNova kaydir-wrapper">
+
+  <button class="ok sol" onclick="kaydir(-1)">❮</button>
+
+  <div class="kaydir-container" id="kaydirAlan">
+      <a href="#ogretici">Öğretici çalışması</a>
       <a href="#bombteam1">bomba imha ekibi</a>
-                      
       <a href="#matrix">matrix ekranı</a>
-
       <a href="#bombteam2">bomba imha ekibi 2</a>
-
       <a href="#dsaatcmd">Dijital Saat Cmd Tarzı</a>
+      <a href="#bluescreencmd">Mavi Ekran</a>
+  </div>
 
-      <a href="#">...</a>
-  </nav>
+  <button class="ok sag" onclick="kaydir(1)">❯</button>
 
-</div>
+</nav>
 </header>
-
 <p class="hero_text fontOffside"> Bazı projelerin telif hakkı tamamiyle Bozuk_Devre_Tech' e aittir.</p>
 
 <main class="bat-detay">
@@ -180,8 +60,11 @@ background-color: #334155;
 
   <!-- KOD BLOĞU -->
   <pre class="bat-kod"><code>
-    Bu bat dosyası, Windows ortamında öğrenmeyi
-    eğlenceli hale getirmek amacıyla hazırlanmıştır.
+    Bu bat dosyası, Windows ortamında görsel ve etkileşimli
+    aynı zamanda öğretici bir simülasyon deneyimi oluşturur.
+    Aynı zamanda öğrenmeyi eğlenceli hale getirmek amacıyla hazırlanmıştır.
+
+    <span style="color: rgba(255, 217, 0, 0.838)">ek: çalıştırmadan önce .zip dosyasını ayıklamanız önerilir.</span>
     
     you tube -> bozukdevretech
     instagram -> Bozuk_Devre_Tech
@@ -205,6 +88,8 @@ background-color: #334155;
   <pre class="bat-kod"><code>
     Bu bat dosyası, Terminal ekranınızda sürekli değişen
     yeşil sayılar açarak size âdeta bir <span style="color: rgb(0, 255, 0)">'hacker'</span> hissiyatı verir.
+
+    <span style="color: rgba(255, 217, 0, 0.838)">ek: çalıştırmadan önce .zip dosyasını ayıklamanız önerilir.</span>
     
     you tube -> bozukdevretech
     instagram -> Bozuk_Devre_Tech
@@ -218,10 +103,10 @@ background-color: #334155;
   <a class="indir-btn" href="../BAT_CALİSMALAR/matrix.zip" download>
     ⭳⭳⭳ matrix.Zip indir
   </a>
+
 </div>
-  
-  <hr class="cizgi">
-  <!--============= BOMBA İMHA EKİP 2 ÇALIŞMASI ============-->
+<hr class="cizgi">
+<!--============= BOMBA İMHA EKİP 2 ÇALIŞMASI ============-->
 <div class="bomba_imha_ekibi_2">
   <h1 id="bombteam2">.BAT <i>"Bomba imha ekibi_2"</i> çalışması</h1>
 
@@ -246,7 +131,6 @@ background-color: #334155;
     ⭳⭳⭳ matrix.Zip indir
   </a>
 </div>
-  
 <hr class="cizgi">
 <!--============= Dijital Saat Cmd ÇALIŞMASI ============-->
 <div class="dijitalsaatcmd">
@@ -272,12 +156,39 @@ background-color: #334155;
     ⭳⭳⭳ matrix.Zip indir
   </a>
 </div>
+<hr class="cizgi">
+<!--============= Mavi_ekran ÇALIŞMASI ============-->
+<div class="bluescmd">
+  <h1 id="bluescreencmd">.BAT <i>"Mavi_Ekran "</i> çalışması</h1> <!--bu kısım sayfa başından link almak için-->
+
+  <!-- KOD BLOĞU -->
+  <pre class="bat-kod"><code>
+    Bu bat dosyası, bilgisayarınızda biraz eğlenmenizi
+    ve bir <span style="color: rgb(255, 0, 0)">'hata'</span> varmış gibi görünmenizi sağlar
+
+    <span style="color: rgba(255, 217, 0, 0.838)">ek: çalıştırmadan önce .zip dosyasını ayıklamanız önerilir.</span>
+
+    you tube -> bozukdevretech
+    instagram -> Bozuk_Devre_Tech
+
+    Üstelik bu eğlenceli çalışmamın kodlarını
+    sizlerle ücretsiz olarak paylaşıyorum.
+    ↓↓↓
+  </code></pre>
+
+  <!-- İNDİR BUTONU -->
+  <a class="indir-btn" href="../BAT_CALİSMALAR/mavi_ekran.zip" download>
+    ⭳⭳⭳ matrix.Zip indir
+  </a>
+</div>
 
 </main>
-
+<!-- KAYDIRMA ELEMANLARI İÇİN JS -->
+  <script>
+function kaydir(yon) {
+  const container = document.getElementById("kaydirAlan");
+  container.scrollLeft += yon * 200;
+}
+</script>
 </body>
 </html>
-
-
-
-
