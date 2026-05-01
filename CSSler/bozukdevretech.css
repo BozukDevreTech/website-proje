@@ -451,6 +451,11 @@ background-color: #1845ad;
   margin-bottom: 6px;
 }
 
+/*tıklanabilir kartın altındaki varsayılan çizgiyi kaldırmak için css*/
+.kart-link{
+  text-decoration: none;
+}
+
 .kart-aciklama {
   font-size: 18px;
   font-family: "Tektur";
