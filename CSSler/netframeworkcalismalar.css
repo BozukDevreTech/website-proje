@@ -1,0 +1,334 @@
+/* =================    .NET FRA MEWORK ÇALIŞMALARIM İÇİN CSS    ====================*/
+
+/*--------------------------------------------------------------------------------*/
+/*==========================    SAYFANIN ANA KISIMLARI    ========================*/
+/*--------------------------------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(145deg, #0393eb 10%, #5e63b6 50%, #27296d 90%);
+    color: #fff;
+    min-height: 100vh;
+}
+
+
+/*=================================    HEADER    =================================*/
+
+header {
+background: #000033;
+border-radius: 30px; /* kenar yumuşatma */
+padding: 10px 10px;
+border-bottom: 2px solid #096386;
+position: sticky;
+margin-top: 10px; /* yukarıdan boşluk verir*/
+margin-left: 20px;
+margin-right: 20px;
+z-index: 100%;
+}
+
+.konteyner {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+
+.baslik-icerik {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo {
+display: flex;
+flex: 1;
+align-items: center;
+gap: 10px;
+}
+
+.logo-icon {
+width: 40px;
+height: 40px;
+color: #0066cc;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: bold;
+
+transition-duration:0.3s;
+}
+
+.logo-icon:hover {
+  color: #fceec8;
+}
+
+.logo-text h1 {
+font-size: 24px;
+color: #0066cc;
+
+transition-duration:0.3s;
+}
+
+.logo-text h1:hover { /* fare konuma geldiğinde logo buna dönüşecek */
+	color: #fceec8;
+}
+
+.logo-text p {
+font-size: 18px;
+color: #0066cc;
+
+transition-duration:0.3s;
+}
+
+.logo-text p:hover { /* fare konuma geldiğinde logo buna dönüşecek */
+	color: #fceec8;
+}
+
+/* ana baslik kısmını text-align ve diğer yöntemlerle ortalamayı başaramadım. Bunun sebebi flex yapısı. Mevcut flex yapısı sayfayı 2'e ayırmış durumda bu sebeple yazının ortada görünmesi bir flex elemanı daha eklemeliyim.*/
+
+.ana-baslik {
+  font-size: 20px;
+  flex: 1;
+  color: #fceec8;
+  text-align: center;   /*asıl değişim*/
+  font-family: "Tektur";
+}
+
+/*yazı ortaya yerleşebilsin diye ona 1, bosluk ve logo kısmına 1 flex değeri verdim.*/
+.bosluk {
+  flex: 1;
+  text-align: center;
+  padding-right: 10px;
+}
+
+#geritus {
+  font-size: 40px;
+  color: #0066cc;
+  font-family: "PirataOne-Regular", cursive;
+  padding-left: 90px;
+}
+
+
+/*--------------------------------------------------------------------------------*/
+/*============================    BODY İÇİ ELEMANLARI    ==========================*/
+/*--------------------------------------------------------------------------------*/
+
+/* en üstteki bilgilendirme yazıları */
+.hero_text {
+  font-size: 18px;
+  text-align: center;
+  color: #000033;
+  margin-top: 20px;
+}
+
+.onerilen-grid {
+  display: block;
+}
+
+/* kutu yapısı */
+.calisma-kart {
+  width: 90%;
+  min-height: 160px;
+  background-color: #2b58c2;
+  border-radius: 50px;
+  border: 3px solid #000033;
+  padding: 20px;
+  margin: 20px auto; /*sayfaya ortalanmasını istediğim için diğer değer auto dedim*/
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.322);
+}
+
+/* kartın üstüne gelince hafif hareket eder */
+.calisma-kart:hover {
+  background: #3874ff;
+  transform: translateY(-4px);
+}
+
+/* ÖNEMLİ ======  flex yaslamak demek.
+Bu özelliği birden fazla çocukları olan ebeveyne eklemem gerek
+yani burada bu parent, kart-icerik oluyor
+img ve diğer tüm elemanları yan yana dizer */
+.kart-icerik {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* yazılar yan yana dizilmesin diye ayrı bir yazı alanı yaptım(farklı bir yöntem) */
+.yazi-alani {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;  /*yazılar arasına 5 px eşit boşluk bırakır*/
+}
+
+/* RESİM KISMI */
+.kart-resim {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;   /*görselin oranı değişirse boyutunu bozmaz hatta bulunduğu kutunun tamamını kaplaması için gerekiyrse görselin bir kısmını kırpar*/
+  border-radius: 15px;
+  border: 1px solid #fceec8;
+  margin-left: 20px;
+  flex-shrink: 0;     /*  resim küçülmez */
+}
+
+/* BAŞLIK */
+.uni-kart-baslik {
+  font-size: 25px;
+  font-family: "NovaSquare", cursive;
+  color:#ffffff;
+  font-weight: 600;
+  margin-bottom: 6px;
+  transition-duration:0.3s;
+}
+
+/* AÇIKLAMA */
+.kart-aciklama {
+  font-size: 21px;
+  font-family: "Tektur";
+  color: #ffffff;
+  line-height: 1.4;
+  transition-duration:0.3s;
+}
+
+.ikincil-kart-aciklama {
+  font-size: 21px;
+  font-family: "Tektur";
+  color: #ffffff;
+  line-height: 1.4;
+  transition-duration:0.3s;
+}
+
+/* Yazıların tek tek rengi değişçek çünkü parentten aynı anda hover vermeyi yapamadım */
+.calisma-kart:hover .uni-kart-baslik {
+  color: #000033;
+}
+
+.calisma-kart:hover .kart-aciklama {
+  color: #000033;
+}
+
+.calisma-kart:hover .ikincil-kart-aciklama {
+  color: #000033;
+}
+
+.not_link {
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  background: #000033;
+  color: #15ff00;
+  max-width: 50%;
+  border-radius: 30px;
+  border: 1px solid #fceec8;
+  transition-duration:0.3s;
+  padding: 5px;
+}
+
+.not_link:hover {
+  background-color: #050541b5;
+}
+
+.video {
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  background: #000033;
+  color: #00ffff;
+  max-width: 50%;
+  border-radius: 30px;
+  border: 1px solid #fceec8;
+  transition-duration:0.3s;
+  padding: 5px;
+}
+
+.video:hover {
+  background-color: #0202478f;
+}
+/*--------------------------------------------------------------------------------*/
+/*============================    YAZITİPİ ÇALIŞMASI    ==========================*/
+/*--------------------------------------------------------------------------------*/
+
+
+/*-------------------- PirataOne-Regular fontunun tanımlanması -------------------*/
+@font-face {
+  font-family: "PirataOne-Regular";
+  src: url("../yazi_tipleri/PirataOne-Regular.ttf") format("truetype");
+}
+
+.PirataOne {
+  font-family: "PirataOne-Regular", cursive;
+}
+
+/*----------------------- NovaSquare fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "NovaSquare";
+  src: url("../yazi_tipleri/Nova_Square/NovaSquare-Regular.ttf") format("truetype");
+}
+
+/* fontunu tanıtmazsan kod nasıl çalışabilirki! sen gidip font adını yazacağın yere yolu yazıyorsun olcak iş mi şimdi bu*/
+.fontNova {
+  font-family: "NovaSquare", monospace;
+}
+/*olur da dosya yolu değişir ya da rahmetlik olursa nova square in yerine monospace kullansın diyorum*/
+
+
+/*----------------------- Audiowide fontunun tanımlanması ----------------------*/
+@font-face {
+  font-family: "Audiowide";
+  src: url("../yazi_tipleri/Audiowide/Audiowide-Regular.ttf") format("truetype");
+}
+
+.fontAudioWide {
+  font-family: "Audiowide";
+}
+
+/*----------------------- Offside fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Offside";
+  src: url("../yazi_tipleri/Offside-Regular.ttf") format("truetype");
+}
+
+.fontOffside {
+  font-family: "Offside";
+}
+
+/*----------------------- Tektur fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Tektur";
+  src: url("../yazi_tipleri/Tektur/Tektur-VariableFont_wdth\,wght.ttf") format("truetype");
+}
+
+.Tektur {
+  font-family: "Tektur";
+}
+
+/*----------------------- CoralPixel fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Coralpixel";
+  src: url("../yazi_tipleri/Coral_Pixels/CoralPixels-Regular.ttf") format("truetype");
+}
+
+.Coralpixel {
+  font-family: "Coralpixel";
+}
+
+/*----------------------- Mozilla Text fontunun tanımlanması ----------------------*/
+@font-face{
+  font-family: "Mozillatext";
+  src: url("../yazi_tipleri/Mozilla_Text/MozillaText-VariableFont_wght.ttf") format("truetype");
+}
+
+.Mozillatext {
+  font-family: "Mozillatext";
+}
+
+
+.yazitip {
+  font-family: "NovaSquare";
+}
