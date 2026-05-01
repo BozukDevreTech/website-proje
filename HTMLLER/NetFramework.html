@@ -1,0 +1,87 @@
+<!DOCTYPE Html>
+<html lang=tr>
+    <head>
+        <meta charset="UTF-8">
+        <title>.NET FRAMEWORK ÇALIŞMALARIM</title>
+        <link rel="stylesheet" href="../CSSler/netframeworkcalismalar.css">
+
+        <!-- bu sayfa yeniden yüklendiğinde ilk kısım açılsın diye yazıldı -->
+
+        <script>
+
+  // Sayfa yüklenmeden önce hash’i temizle
+  if (window.location.hash) {
+    history.replaceState(null, null, window.location.href.split('#')[0]);
+  }
+  // Sayfa yüklendikten 10ms sonra en başa kaydır
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 10); // 10ms gecikme, tarayıcının scroll hafızasını geçersiz kılar
+  });
+        </script>
+    </head>
+
+    <!-- sayfa yenilendiğinde otomatik olarak kaldığı id den açıyor ama ben sayfayı yenileyince en baştan açsın istiyorum. Bu yüzden sayfanın body kısmına onload ekledim ama yeterli gelmediği için head kısmına bir de script ekledim-->
+
+<body onload="window.scrollTo(0,0);">
+<!--================ HEADER ================-->
+<header>
+    <div class="konteyner">
+            <div class="baslik-icerik">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu h-8 w-8 text-blue-500" data-fg-d3bl6="0.8:2.69086:/src/app/App.tsx:24:15:1194:41:e:Cpu::::::i6E">
+                        <rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path>
+                        <path d="M15 20v2"></path>
+                        <path d="M2 15h2"></path>
+                        <path d="M2 9h2"></path>
+                        <path d="M20 15h2"></path>
+                        <path d="M20 9h2"></path>
+                        <path d="M9 2v2"></path>
+                        <path d="M9 20v2"></path>
+                        </svg>              
+                    </div>
+                    <div class="logo-text">
+                        <h1>Bozuk_Devre_Tech</h1>
+                        <p>yazılım & teknik</p>
+                    </div>
+                </div>
+
+        <!-- ====== SAYFA BAŞLIĞI ====== -->
+
+                    <div class="ana-baslik">
+                        <h1> .NET FRAMEWORK ÇALIŞMALARIM</h1>
+                    </div>
+
+        <!-- ====== Flex Yapısı İçin BOŞLUK ====== -->
+                    <div class="bosluk">
+                        <a id="geritus" href="../index.html" target="_self"> ❮❮❮ GERİ </a>
+                    </div>
+
+            </div>
+    </div>
+    </header>
+<!-- =======  PARAGRAF  ======= -->
+    <!-- htmlde bir etiket birden fazla class'a sahip olabilir-->
+    <p class="hero_text fontOffside"><b> Bu projenin temelleri, görsel programlama dersinde bana rehberlik eden değerli hocamın (Aslı G.S.) katkılarıyla atılmıştır.<br>
+    birçok projenin telif hakkı @Yasar Unıversity 'e aittir.</b></p><br>
+    <pre class="hero_text"><b><code>Bu dosyaları çalıştırmak ve videolu örnekler üzerinden ilerlemeniz için Visual Studio İnsiders kullanmanız önerilir. </code></b></pre>
+
+            <div class="calisma-kart">
+                <div class="kart-icerik">
+                    <img src="../net framework.png" class="kart-resim" height="150">
+                    <!-- bu kez yazıları alt alta dizmek için bir yazı alanı oluşturdum -->
+                    <div class="yazi-alani">
+                        <div class="uni-kart-baslik">Form Dosyasının Temelleri</div>
+                        <div class="kart-aciklama">Kullanıcı ile tanışma (1x örnek)</div>
+                        <div class="ikincil-kart-aciklama">detaylı anlatım videosu şimdi you tube kanalımda:</div>
+                        <a href="../tanismauyg.svg" download class="not_link"><code> Kodlar </code></a>
+                        <a href="https://www.youtube.com/watch?v=5Iiz19Zfp4Q" class="video" target="_blank"><code>❯❯ VİDEO_LİNK ❮❮</code></a>
+                    </div>
+                </div>
+            </div>
+
+
+</body>
+</html>
