@@ -1,0 +1,1 @@
+MsgBox "ABC123",06,"Sifre"

@@ -1,0 +1,1 @@
+Msgbox "merhaba,öncelikle sakin ol. Sana yardým edeceðim. Sonrasýnda söz sana herþey'i anlatacaðým."& chr(10)&chr(10) &" þifre kodu yolda 10 saniye sonra sana ulaþacak",06,"Astra"
